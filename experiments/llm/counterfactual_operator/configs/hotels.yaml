@@ -1,0 +1,17 @@
+base_config: base.yaml
+campaign: hotels_paper_panel2k_matched_fresh_rho085
+dataset: hotel_one_sided
+data:
+  test_rows: 2000
+  rho: 0.85
+  utility_noise_std: 2.5
+  strict_min_gap: 5.0
+  candidate_operator: strict_winner_vs_one_empirical_nuisance_redraw
+  factorized_prompt: |
+    You are choosing a hotel for an upcoming stay. Recommend the better hotel. Respond with the complete profile of the hotel you recommend.
+
+    Recommended hotel profile:
+evaluation:
+  batch_size: 8
+output:
+  relative_root: results/llm/counterfactual_operator/hotels_paper_panel2k_matched_fresh_rho085

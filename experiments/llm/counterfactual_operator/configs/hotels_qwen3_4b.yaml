@@ -1,0 +1,19 @@
+base_config: hotels.yaml
+campaign: hotels_qwen3_4b_panel2k_matched_fresh_rho085
+selection:
+  seeds: [0]
+  utl_draws: 1
+training:
+  batch_size: 2
+  gradient_accumulation: 8
+model:
+  id: Qwen/Qwen3-4B-Instruct-2507
+  revision: cdbee75f17c01a7cc42f958dc650907174af0554
+  arithmetic: unquantized_bf16
+  attention: flash_attention_2
+  lora_rank: 8
+  lora_alpha: 16
+  lora_dropout: 0.05
+  lora_targets: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+output:
+  relative_root: results/llm/counterfactual_operator/hotels_qwen3_4b_panel2k_matched_fresh_rho085

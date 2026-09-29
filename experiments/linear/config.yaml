@@ -1,0 +1,36 @@
+name: paper_loglinear_theory_n1000_pool500_fullbank
+
+d_c: 10
+d_s: 10
+block_condition_number: 20.0
+r_min: 0.20
+r_max: 0.65
+gamma_c: 2.0
+gamma_s: 2.0
+beta_teacher: 4.0
+beta_dpo: 1.0
+
+n_strict: 1000
+n_candidates: 500
+
+budgets: [25, 50, 75, 100, 150, 200, 250, 300, 350, 400, 450, 500]
+methods: [UTL, PM, Oracle]
+operators: [resampling]
+seeds: [0, 1, 2, 3, 4]
+utl_draws: 5
+theory_packet_weight: 0.001
+theory_margin_bins: 10
+reference_coordinates: theta_minus_theta_ref_with_zero_origin
+candidate_bank: both_options_from_all_strict_pairs
+
+gradient_tolerance: 1.0e-10
+maximum_newton_iterations: 250
+arithmetic: float64
+training: fresh_zero_initialized_dense_newton_realized_ties
+candidate_operator: strict_winner_vs_empirical_nuisance_redraw
+training_packet: single_prerealized_uniform
+scoring_packet: exact_symmetric_average
+selector_schedule: one_shot_topk_prefix
+packet_source: grad_logical_symmetric_packet_over_N
+
+output_root: results/linear/theory_n1000_pool500_fullbank

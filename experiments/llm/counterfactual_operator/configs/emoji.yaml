@@ -1,0 +1,13 @@
+base_config: base.yaml
+campaign: pku_emoji_paper_a8_panel2k_matched_fresh
+dataset: pku_direct_emoji
+input:
+  source_input_id: pku-safe-causal-sources-v1
+data:
+  test_rows: 1023
+  rho: 0.95
+  maximum_emoji_events: 8
+  chat_template_date: 07 Sep 2026
+  candidate_operator: displayed_strict_winner_vs_registered_emoji_removal
+output:
+  relative_root: results/llm/counterfactual_operator/pku_emoji_paper_a8_panel2k_matched_fresh

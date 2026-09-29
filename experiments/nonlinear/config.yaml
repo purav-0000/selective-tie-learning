@@ -1,0 +1,54 @@
+name: paper_nonlinear_n5000_pool2000_ggn_woodbury
+endpoint_initialization: common_initialization
+output_root: results/nonlinear/paper_aligned
+widths: [128]
+
+d_c: 10
+d_s: 10
+block_condition_number: 20.0
+r_min: 0.20
+r_max: 0.65
+gamma_c: 2.0
+gamma_s: 2.0
+beta_teacher: 4.0
+mixer_hidden: 64
+mixer_seed: 12345
+beta_dpo: 1.0
+
+n_strict: 5000
+n_candidates: 2000
+n_curvature: 1000
+n_selection_probe: 500
+n_energy_probe: 10000
+energy_redraws: 8
+n_evaluation: 50000
+
+adam_lr: 0.002
+adam_weight_decay: 0.01
+batch_size: 512
+epochs: 20
+optimizer: adam_lbfgs_regularized
+lbfgs_lr: 1.0
+lbfgs_history: 20
+lbfgs_max_iter: 500
+lbfgs_max_eval: 650
+lbfgs_grad_tolerance: 1.0e-5
+lbfgs_change_tolerance: 1.0e-12
+objective_chunk_size: 2048
+
+candidate_chunk_size: 64
+curvature_chunk_size: 64
+spectral_shift_fraction: 0.05
+ggn_solve_tolerance: 1.0e-10
+
+budgets: [100, 200, 300, 400, 500, 750, 1000, 1500, 2000]
+methods: [UTL, PM, Influence]
+operators: [resampling]
+candidate_operator: strict_winner_vs_empirical_nuisance_redraw
+candidate_bank: both_options_from_all_strict_pairs
+training_packet: single_prerealized_uniform
+scoring_packet: exact_symmetric_average
+reference_margin: implicit_zero
+seeds: [0, 1, 2, 3, 4]
+utl_draws: 5
+device: cpu

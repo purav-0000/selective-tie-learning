@@ -1,0 +1,6 @@
+base_config: emoji.yaml
+campaign: pku_emoji_paper_a8_panel2k_matched_continued
+training:
+  endpoint_initialization: strict_checkpoint
+output:
+  relative_root: results/llm/counterfactual_operator/pku_emoji_paper_a8_panel2k_matched_continued

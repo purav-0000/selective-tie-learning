@@ -1,0 +1,6 @@
+base_config: hotels.yaml
+campaign: hotels_paper_panel2k_matched_continued_rho085
+training:
+  endpoint_initialization: strict_checkpoint
+output:
+  relative_root: results/llm/counterfactual_operator/hotels_paper_panel2k_matched_continued_rho085
